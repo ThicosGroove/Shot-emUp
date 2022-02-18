@@ -180,6 +180,45 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Jogador"",
+            ""id"": ""ec7858c3-4bf0-4a20-b8e9-9f3ee8e031b3"",
+            ""actions"": [
+                {
+                    ""name"": ""ChooseWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""762da8cb-9e9c-4a18-b737-1415349b1991"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(pressPoint=0.1)"",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0b80db75-f1b5-43d7-a8bd-5a3a9178f8b4"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChooseWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c231895-6f82-48a2-96b8-d7bb683d716e"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChooseWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -188,6 +227,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         m_SpaceShip = asset.FindActionMap("SpaceShip", throwIfNotFound: true);
         m_SpaceShip_Shot = m_SpaceShip.FindAction("Shot", throwIfNotFound: true);
         m_SpaceShip_Move = m_SpaceShip.FindAction("Move", throwIfNotFound: true);
+        // Jogador
+        m_Jogador = asset.FindActionMap("Jogador", throwIfNotFound: true);
+        m_Jogador_ChooseWeapon = m_Jogador.FindAction("ChooseWeapon", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -284,9 +326,46 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         }
     }
     public SpaceShipActions @SpaceShip => new SpaceShipActions(this);
+
+    // Jogador
+    private readonly InputActionMap m_Jogador;
+    private IJogadorActions m_JogadorActionsCallbackInterface;
+    private readonly InputAction m_Jogador_ChooseWeapon;
+    public struct JogadorActions
+    {
+        private @InputControls m_Wrapper;
+        public JogadorActions(@InputControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ChooseWeapon => m_Wrapper.m_Jogador_ChooseWeapon;
+        public InputActionMap Get() { return m_Wrapper.m_Jogador; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(JogadorActions set) { return set.Get(); }
+        public void SetCallbacks(IJogadorActions instance)
+        {
+            if (m_Wrapper.m_JogadorActionsCallbackInterface != null)
+            {
+                @ChooseWeapon.started -= m_Wrapper.m_JogadorActionsCallbackInterface.OnChooseWeapon;
+                @ChooseWeapon.performed -= m_Wrapper.m_JogadorActionsCallbackInterface.OnChooseWeapon;
+                @ChooseWeapon.canceled -= m_Wrapper.m_JogadorActionsCallbackInterface.OnChooseWeapon;
+            }
+            m_Wrapper.m_JogadorActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @ChooseWeapon.started += instance.OnChooseWeapon;
+                @ChooseWeapon.performed += instance.OnChooseWeapon;
+                @ChooseWeapon.canceled += instance.OnChooseWeapon;
+            }
+        }
+    }
+    public JogadorActions @Jogador => new JogadorActions(this);
     public interface ISpaceShipActions
     {
         void OnShot(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IJogadorActions
+    {
+        void OnChooseWeapon(InputAction.CallbackContext context);
     }
 }

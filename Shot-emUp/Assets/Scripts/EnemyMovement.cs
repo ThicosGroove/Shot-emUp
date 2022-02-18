@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float moveSpeedMax = 5.5f;
     
     private Vector2 newPos;
-    private float outOfBounds = 6.5f;
+    private float outOfBounds = -6.5f;
 
     private void Start()
     {

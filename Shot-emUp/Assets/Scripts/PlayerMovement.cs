@@ -5,10 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // muita gente só deixa public
-    // prefiro usar serializeField para manipular a variavel no inspector
-    // poq não vou usar em outra classe.  ta certo isso? acho que sim né
-    [SerializeField] private float moveSpeed;
+    public float moveSpeed; //usei no PlayerPoweUP
 
     private InputControls inputControls;
 

@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class GunManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] bulletType;
+    private Gun[] gun;
+    //public Weapon[] weapon;
 
     private InputControls inputControls;
 
@@ -28,20 +29,19 @@ public class GunManager : MonoBehaviour
 
     void Start()
     {
-
+        gun = GetComponentsInChildren<Gun>();
     }
 
     private void FixedUpdate()
     {
         shoot = inputControls.SpaceShip.Shot.ReadValue<float>();
 
-        if (shoot == 1)
-            SpawnBullet(0);
-    }
-
-    //vai mudar de acordo com o power up OU o jogador pode selecionar hr que quiser
-    private void SpawnBullet(int type)
-    {
-        Instantiate(bulletType[type].gameObject, transform.position, Quaternion.identity);
-    }
+        if (shoot == 1) 
+        {
+            foreach (var guns in gun)
+            {
+                guns.Shoot();
+            }
+        }      
+    }   
 }

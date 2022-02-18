@@ -56,12 +56,19 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Input Control\InputControls.cs" />
+    <Compile Include="Assets\Scripts\Gun.cs" />
+    <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\SpawnEnemy.cs" />
+    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\BulletManager.cs" />
     <Compile Include="Assets\Scripts\GunManager.cs" />
-    <Compile Include="Assets\Input Control\InputControls.cs" />
+    <Compile Include="Assets\Scripts\EnemyGun.cs" />
+    <Compile Include="Assets\Scripts\BGMoving.cs" />
+    <Compile Include="Assets\Scripts\PowerUP.cs" />
+    <Compile Include="Assets\Scripts\SpawnPUManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerPowerUP.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

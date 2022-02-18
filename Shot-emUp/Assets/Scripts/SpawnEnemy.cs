@@ -11,7 +11,7 @@ public class EnemyInfo
 
 public class SpawnEnemy : MonoBehaviour
 {
-    [SerializeField] private int enemyMaxSpawn = 3; // acho importante deixar no inspector alguns setups
+    [SerializeField] private int enemyMaxSpawn; // acho importante deixar no inspector alguns setups
 
     public EnemyInfo[] enemies;
 
@@ -23,12 +23,12 @@ public class SpawnEnemy : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawningEnemy", 0f, 1.2f);
+        InvokeRepeating("SpawningEnemy", 0f, SpawnRandomWaves());
     }
 
     void Update()
     {
-        
+        SpawnRandomWaves();
     }
  
     private void SpawningEnemy()
@@ -49,5 +49,11 @@ public class SpawnEnemy : MonoBehaviour
         Vector3 randomPos = new Vector2(spawnPosX, spawnPosY);
 
         return randomPos;
+    }
+
+    float SpawnRandomWaves()
+    {
+        float randomWaves = Random.Range(0.7f, 1f);
+        return randomWaves;
     }
 }

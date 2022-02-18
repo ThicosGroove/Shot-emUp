@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993be2b28cce0554990eb66fe8d8adc4, type: 3}
+  m_Name: Enemy Gun Type 2
+  m_EditorClassIdentifier: 
+  _fireRate: 0.5
+  _bulletSpeed: 10
+  _gunType: 4
+  bulletType: {fileID: 7448406442585565890, guid: a1617e43079ccef4fb370a7ceeb6c851, type: 3}
