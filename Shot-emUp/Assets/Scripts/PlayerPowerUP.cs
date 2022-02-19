@@ -5,9 +5,10 @@ using UnityEngine;
 // Achei que ia ficar muita coisa num script só
 public class PlayerPowerUP : MonoBehaviour
 {
-    
-    [SerializeField] private float powerUpSpeed = 1.5f; //preferi deixar o jogador lidar com os power ups. Não sei se é a melhor decisão.
-                                                        // mas me parece ser a mais fácil aqui
+    //preferi deixar o jogador lidar com os power ups. Não sei se é a melhor decisão.
+    // mas me parece ser a mais fácil aqui
+
+    [SerializeField] private float powerUpSpeed = 1.5f; 
 
     [SerializeField] private float _shieldPowerUpTimer = 8f;
     [SerializeField] private float _speedPowerUpTimer = 8f;
@@ -31,15 +32,13 @@ public class PlayerPowerUP : MonoBehaviour
 
             StartCoroutine(ShieldTimer());
         }
-
-        if (collision.gameObject.CompareTag("SpeedPU"))
+        else if (collision.gameObject.CompareTag("SpeedPU"))
         {
             playerMovement.moveSpeed *= powerUpSpeed;
 
             StartCoroutine(SpeedTimer());
-        }
-
-        if (collision.gameObject.CompareTag("BulletPU"))
+        }           
+        else if (collision.gameObject.CompareTag("BulletPU"))
         {
             gun[0].SetActive(false);
             gun[1].SetActive(true);
@@ -48,7 +47,6 @@ public class PlayerPowerUP : MonoBehaviour
 
             StartCoroutine(BulletTimer());
         }
-
     }
 
     // ia colocar os 3 juntos, mas achei melhor separar para poder ajustar os tempos independentes
@@ -57,7 +55,6 @@ public class PlayerPowerUP : MonoBehaviour
         yield return new WaitForSeconds(_shieldPowerUpTimer);
 
         shield.SetActive(false);
-        playerMovement.moveSpeed /= powerUpSpeed;
     }
 
     IEnumerator SpeedTimer()
@@ -78,5 +75,6 @@ public class PlayerPowerUP : MonoBehaviour
         gun[3].SetActive(false);
 
         //tentei de muitas formas fazer as armas funcionarem. mas esse foi o que eu consegui
+        //o unico problema é que quando troca de arma o jogador precisa pressionar novamente o botao
     }
 }

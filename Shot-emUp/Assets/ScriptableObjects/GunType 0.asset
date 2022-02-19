@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993be2b28cce0554990eb66fe8d8adc4, type: 3}
   m_Name: GunType 0
   m_EditorClassIdentifier: 
-  _fireRate: 0.5
+  _fireRate: 0.08
   _bulletSpeed: 10
-  _gunType: 0
   bulletType: {fileID: 2062169614763018322, guid: 46206b798e2dbda4cb260aa9d64dec68, type: 3}

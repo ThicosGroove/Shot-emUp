@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
-    public Weapon weapon;
+    public WeaponScriptableObject weapon;
     public Vector2 direction = new Vector2(0, 1);
     private Vector2 velocity;
 
@@ -31,17 +31,14 @@ public class BulletManager : MonoBehaviour
     {
         if (this.gameObject.CompareTag("PlayerBullet") && collision.gameObject.CompareTag("Enemy"))
         {
-            //nao ta funcionando?
-            Debug.Log("Acertou inimigo");
+            Debug.Log("ACERTOU O INIMIGO"); //NAO TO ACERTANDO O INIMIGO!!! POQQQQ???
             Destroy(this.gameObject);
         }
-        
-        if (this.gameObject.CompareTag("EnemyBullet") && collision.gameObject.CompareTag("Player"))
+        else if (this.gameObject.CompareTag("EnemyBullet") && collision.gameObject.CompareTag("Player"))
         {
             Destroy(this.gameObject);
-        }
-
-        if (this.gameObject.CompareTag("EnemyBullet") && collision.gameObject.CompareTag("Shield"))
+        }        
+        else if (this.gameObject.CompareTag("EnemyBullet") && collision.gameObject.CompareTag("Shield"))
         {
             Destroy(this.gameObject);
         }

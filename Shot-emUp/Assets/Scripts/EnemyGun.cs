@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyGun : MonoBehaviour
 {
-    public Weapon weapon;
+    public WeaponScriptableObject weapon;
     private Vector2 newDirection;
 
     private void Start()
     {
-        InvokeRepeating("Shoot", 0.5f, 0.8f);
+        InvokeRepeating("Shoot", 0.5f, weapon._fireRate);
     }
 
     private void Update()
@@ -19,10 +19,8 @@ public class EnemyGun : MonoBehaviour
 
     public void Shoot()
     {
-
         GameObject bullet = Instantiate(weapon.bulletType, transform.position, Quaternion.identity);
         BulletManager newBullet = bullet.GetComponent<BulletManager>();
         newBullet.direction = newDirection;
-
     }
 }

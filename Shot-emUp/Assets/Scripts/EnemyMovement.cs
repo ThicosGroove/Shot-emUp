@@ -40,4 +40,14 @@ public class EnemyMovement : MonoBehaviour
         if (newPos.y < outOfBounds)
             Destroy(this.gameObject);
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerBullet"))
+        {
+            Debug.Log("Acertou inimigo");
+            Destroy(this.gameObject);
+        }
+    }
 }
