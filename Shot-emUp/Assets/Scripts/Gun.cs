@@ -10,7 +10,6 @@ public class Gun : MonoBehaviour
 
     private Vector2 newDirection;
 
-    private bool isActive;
     private float shoot;
     private InputControls inputControls;
 
@@ -34,8 +33,6 @@ public class Gun : MonoBehaviour
     {
         newDirection = (transform.localRotation * Vector3.up).normalized;
 
-        isActive = gameObject.activeInHierarchy;
-
         shoot = inputControls.SpaceShip.Shot.ReadValue<float>();
 
         if (shoot == 1 && Time.time > nextFire)
@@ -47,13 +44,8 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        if (isActive)
-        {
-            GameObject bullet = Instantiate(weapon.bulletType, transform.position, Quaternion.identity);
-            BulletManager newBullet = bullet.GetComponent<BulletManager>();
-            newBullet.direction = newDirection;
-        }
+        GameObject bullet = Instantiate(weapon.bulletType, transform.position, Quaternion.identity);
+        BulletManager newBullet = bullet.GetComponent<BulletManager>();
+        newBullet.direction = newDirection;
     }
-
-
 }

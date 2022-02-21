@@ -29,18 +29,20 @@ public class BulletManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (this.gameObject.CompareTag("PlayerBullet") && collision.gameObject.CompareTag("Enemy"))
+        if (this.gameObject.CompareTag("EnemyBullet") && collision.gameObject.CompareTag("PlayerBody"))
         {
-            Debug.Log("ACERTOU O INIMIGO"); //NAO TO ACERTANDO O INIMIGO!!! POQQQQ???
             Destroy(this.gameObject);
         }
-        else if (this.gameObject.CompareTag("EnemyBullet") && collision.gameObject.CompareTag("Player"))
-        {
-            Destroy(this.gameObject);
-        }        
         else if (this.gameObject.CompareTag("EnemyBullet") && collision.gameObject.CompareTag("Shield"))
         {
             Destroy(this.gameObject);
         }
+        else if (this.gameObject.CompareTag("PlayerBullet") && collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(this.gameObject);
+        }
     }
+
+
+
 }

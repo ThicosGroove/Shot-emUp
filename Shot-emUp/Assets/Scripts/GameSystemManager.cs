@@ -8,6 +8,7 @@ public class GameSystemManager : MonoBehaviour
     public GameObject spaceShip;
     public GameObject[] Enemy;
 
+    public bool isDead = false;
     private Vector2 spawnPosSpaceShip;
 
     void Start()
@@ -17,16 +18,25 @@ public class GameSystemManager : MonoBehaviour
 
     void Update()
     {
-        if (spaceShip.gameObject.GetComponent<PlayerMovement>().IsDead)
+        //if (spaceShip.gameObject.GetComponent<PlayerMovement>().IsDead)
+        //{
+        //    SpaceShipRespawn();
+        //}
+
+        if (isDead)
         {
             SpaceShipRespawn();
         }
+
     }
 
     private void SpaceShipRespawn()
     {
-        Debug.Log("Respawn");
+        //Debug.Log("Respawn");
         spaceShip.transform.position = spawnPosSpaceShip;
+        Physics.SyncTransforms();
+
+        isDead = false;
     }
 
 }

@@ -5,15 +5,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed;          //usei no PlayerPoweUP
-    private bool isDead = false;     //usei no GameSystemManager
+    public float moveSpeed; //usei no PlayerPoweUP
 
     private InputControls inputControls;
 
     private Rigidbody2D rb;
     private Vector2 moveDirection;
-
-    public bool IsDead { get => isDead; set => isDead = value; }
 
     private void Awake()
     {
@@ -51,13 +48,5 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("EnemyBullet"))
-        {
-            isDead = true;
-        }
     }
 }

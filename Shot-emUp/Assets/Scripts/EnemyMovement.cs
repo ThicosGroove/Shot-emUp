@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 newPos;
     private float outOfBounds = -6.5f;
 
+
     private void Start()
     {
         newPos = transform.position;
@@ -41,12 +42,11 @@ public class EnemyMovement : MonoBehaviour
             Destroy(this.gameObject);
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PlayerBullet"))
         {
-            Debug.Log("Acertou inimigo");
+            GamePointSystem.instance.UpdateScore(1);
             Destroy(this.gameObject);
         }
     }

@@ -13,6 +13,9 @@ TagManager:
   - BulletPU
   - Type0
   - Type1
+  - PlayerBody
+  - INIMIGO
+  - BALA JOGADOR
   layers:
   - Default
   - TransparentFX
