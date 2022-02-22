@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnPUManager : MonoBehaviour
 {
+    [SerializeField] private float spawPowerUpRate = 10f;
+
     public GameObject[] powerUpPrefab;
 
     private float spawnRangeXMin = -7;
@@ -14,7 +16,7 @@ public class SpawnPUManager : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnPU", 5f, 10f);
+        InvokeRepeating("SpawnPU", 5f, spawPowerUpRate);
     }
 
     void SpawnPU()

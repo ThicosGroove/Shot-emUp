@@ -19,15 +19,9 @@ public class Gun : MonoBehaviour
         inputControls = new InputControls();
     }
 
-    private void OnEnable()
-    {
-        inputControls.Enable();
-    }
+    private void OnEnable() => inputControls.Enable();
 
-    private void OnDisable()
-    {
-        inputControls.Disable();
-    }
+    private void OnDisable() => inputControls.Disable();
 
     private void Update()
     {
@@ -45,7 +39,7 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         GameObject bullet = Instantiate(weapon.bulletType, transform.position, Quaternion.identity);
-        BulletManager newBullet = bullet.GetComponent<BulletManager>();
+        BulletHandler newBullet = bullet.GetComponent<BulletHandler>();
         newBullet.direction = newDirection;
     }
 }

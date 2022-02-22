@@ -42,7 +42,7 @@ public class SpawnEnemy : MonoBehaviour
         }       
     }
 
-    Vector3 GenerateRandomPosition()
+    private Vector3 GenerateRandomPosition()
     {
         float spawnPosX = Random.Range(spawnRangeXMin, spawnRangeXMax);
         float spawnPosY = Random.Range(spawnRangeYMin, spawnRangeYMax);
@@ -51,7 +51,7 @@ public class SpawnEnemy : MonoBehaviour
         return randomPos;
     }
 
-    float SpawnRandomWaves()
+    private float SpawnRandomWaves()
     {
         float randomWaves = Random.Range(0.7f, 1f);
         return randomWaves;

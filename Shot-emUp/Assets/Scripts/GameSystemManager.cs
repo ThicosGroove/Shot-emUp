@@ -18,21 +18,12 @@ public class GameSystemManager : MonoBehaviour
 
     void Update()
     {
-        //if (spaceShip.gameObject.GetComponent<PlayerMovement>().IsDead)
-        //{
-        //    SpaceShipRespawn();
-        //}
-
         if (isDead)
-        {
-            SpaceShipRespawn();
-        }
-
+            SpaceShipRespawn();       
     }
 
     private void SpaceShipRespawn()
     {
-        //Debug.Log("Respawn");
         spaceShip.transform.position = spawnPosSpaceShip;
         Physics.SyncTransforms();
 

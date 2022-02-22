@@ -10,17 +10,15 @@ public class PlayerPowerUP : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("ShieldPU"))
-        {
-            StartCoroutine(powerUpManager.ShieldTimer());
-        }
-        else if (collision.gameObject.CompareTag("SpeedPU"))
-        {
-            StartCoroutine(powerUpManager.SpeedTimer());
-        }           
-        else if (collision.gameObject.CompareTag("BulletPU"))
-        {
-            StartCoroutine(powerUpManager.BulletTimer());
-        }
+        //isso funiona?
+
+        if (collision.gameObject.CompareTag("ShieldPU"))        
+            StartCoroutine(powerUpManager.PowerUpShieldTimer());
+        
+        else if (collision.gameObject.CompareTag("SpeedPU"))        
+            StartCoroutine(powerUpManager.PowerUpSpeedTimer());
+                  
+        else if (collision.gameObject.CompareTag("BulletPU"))       
+            StartCoroutine(powerUpManager.PowerUpBulletTimer());        
     }
 }

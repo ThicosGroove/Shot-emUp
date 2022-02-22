@@ -38,14 +38,9 @@ public class GamePointSystem : MonoBehaviour
     public void UpdateScore(int killScore)
     {
         if (killScore > 0)
-        {
-            killScore = scorePerKill;
-            score += killScore;
-        }
+            score += scorePerKill;
         else
-        {
             score *= 0;
-        }
 
         scoreText.text = "Score " + score;
     }

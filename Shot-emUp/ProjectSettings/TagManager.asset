@@ -14,8 +14,7 @@ TagManager:
   - Type0
   - Type1
   - PlayerBody
-  - INIMIGO
-  - BALA JOGADOR
+  - MyHealthBar
   layers:
   - Default
   - TransparentFX

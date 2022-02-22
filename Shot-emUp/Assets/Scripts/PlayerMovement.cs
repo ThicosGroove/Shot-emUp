@@ -17,15 +17,9 @@ public class PlayerMovement : MonoBehaviour
         inputControls = new InputControls();
     }
 
-    private void OnEnable()
-    {
-        inputControls.Enable();
-    }
+    private void OnEnable() => inputControls.Enable();
 
-    private void OnDisable()
-    {
-        inputControls.Disable();
-    }
+    private void OnDisable() => inputControls.Disable();
 
     void Start()
     {
@@ -37,9 +31,9 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = inputControls.SpaceShip.Move.ReadValue<Vector2>();
 
         var posX = transform.position;
-        posX.x = Mathf.Clamp(transform.position.x, -8.3f, 8.3f);
-        transform.position = posX;
-
+        posX.x = Mathf.Clamp(transform.position.x, -8.3f, 8.3f); //esses valores nao vao mudar?
+        transform.position = posX;                              //posso deixar os numeros ai?
+                                                               //ou é melhor nunca deixar?
         var posY = transform.position;
         posY.y = Mathf.Clamp(transform.position.y, -4.4f, 4.4f);
         transform.position = posY;

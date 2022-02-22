@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public EnemyHealth myHealth;
+
     // acho importante deixar no inspector alguns setups
     [SerializeField] private float moveSpeedMin = 2.5f;
     [SerializeField] private float moveSpeedMax = 5.5f;
     
     private Vector2 newPos;
     private float outOfBounds = -6.5f;
-
 
     private void Start()
     {
@@ -46,8 +47,9 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerBullet"))
         {
+            myHealth.TakeDemage();
+
             GamePointSystem.instance.UpdateScore(1);
-            Destroy(this.gameObject);
         }
     }
 }

@@ -14,7 +14,8 @@ public class PowerUpManager : MonoBehaviour
     public GameObject[] gun;
 
     // ia colocar os 3 juntos, mas achei melhor separar para poder ajustar os tempos independentes
-    public IEnumerator ShieldTimer()
+    // são usados pelo PlayerBodyHandler
+    public IEnumerator PowerUpShieldTimer()
     {
         shield.SetActive(true); 
 
@@ -23,7 +24,7 @@ public class PowerUpManager : MonoBehaviour
         shield.SetActive(false);
     }
 
-    public IEnumerator SpeedTimer()
+    public IEnumerator PowerUpSpeedTimer()
     {
         playerMovement.moveSpeed *= powerUpSpeed;
 
@@ -32,7 +33,7 @@ public class PowerUpManager : MonoBehaviour
         playerMovement.moveSpeed /= powerUpSpeed;
     }
 
-    public IEnumerator BulletTimer()
+    public IEnumerator PowerUpBulletTimer()
     {
         gun[0].SetActive(false);
         gun[1].SetActive(true);

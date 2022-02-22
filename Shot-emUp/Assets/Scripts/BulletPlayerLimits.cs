@@ -4,16 +4,32 @@ using UnityEngine;
 
 public class BulletPlayerLimits : MonoBehaviour
 {
+    [SerializeField] float bulletMaxRange = 4.5f;
+
+    Color sprite;
+
+    Transform firstPos;
+
+    void Start()
+    {
+        sprite = GetComponentInChildren<SpriteRenderer>().color;
+
+        firstPos = transform;
+    }
+
     void Update()
     {
         var posY = transform.position;
-        posY.y = Mathf.Clamp(transform.position.y, -4.5f, 4.5f);
+        posY.y = Mathf.Clamp(transform.position.y, firstPos.position.y, bulletMaxRange);
         transform.position = posY;
+
+        sprite.a = Mathf.Lerp(firstPos.position.y, bulletMaxRange, 0.5f);
+
+        //sprite.GetComponent<SpriteRenderer>().color = sprite;
 
         if (posY.y == 4.5f)
         {
             Destroy(gameObject);
-            // tentar diminuir o alpha até 0
         }
     }
 }

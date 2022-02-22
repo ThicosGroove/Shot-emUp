@@ -69,11 +69,13 @@
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\BGMoving.cs" />
-    <Compile Include="Assets\Scripts\BulletManager.cs" />
+    <Compile Include="Assets\Scripts\TimerBarManager.cs" />
+    <Compile Include="Assets\Scripts\BulletHandler.cs" />
     <Compile Include="Assets\Scripts\PowerUP.cs" />
     <Compile Include="Assets\Scripts\BulletPlayerLimits.cs" />
     <Compile Include="Assets\Scripts\EnemyGun.cs" />
-    <Compile Include="Assets\Scripts\TimerBarScript.cs" />
+    <Compile Include="Assets\Scripts\EnemyHealth.cs" />
+    <Compile Include="Assets\Scripts\ParticleSystemHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
