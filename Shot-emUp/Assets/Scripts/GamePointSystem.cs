@@ -34,7 +34,8 @@ public class GamePointSystem : MonoBehaviour
         UpdateMaxScore();
     }
 
-    //se mata o inimigo soma, se morre multiplica por 0;
+    //se mata o inimigo soma, se morre multiplica por 0
+    // como o jogo é infinito a cena não reinicia
     public void UpdateScore(int killScore)
     {
         if (killScore > 0)

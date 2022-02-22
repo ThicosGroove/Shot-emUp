@@ -7,11 +7,11 @@ public class ParticleSystemHandler : MonoBehaviour
     [SerializeField] private Color particleColor;
     [SerializeField] private ParticleSystem particle;
 
-    public bool canRunParticle; // usado no EnemyHealth
+    public bool canRunParticle; // usado no EnemyHealth e PlayerSpawnManager
 
     private void Start()
     {
-        var main = particle.gameObject.GetComponent<ParticleSystem>().main;
+        var main = particle.gameObject.GetComponentInChildren<ParticleSystem>().main;
         main.startColor = particleColor;
     }
 

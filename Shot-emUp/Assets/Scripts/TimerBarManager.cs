@@ -10,8 +10,6 @@ public class TimerBarManager : MonoBehaviour
 
     private RectTransform powerUpTimerTransform;
 
-    public PowerUpManager powerUpManager;
-
     public float fill;
 
     private void Awake()
@@ -21,19 +19,20 @@ public class TimerBarManager : MonoBehaviour
 
     private void Update()
     {
-        SetTimer();
+        //SetTimer();
     }
 
-    public void SetTimer()
+    public void SetTimer(float timer)
     {
-        fill = powerUpManager._speedPowerUpTimer - Time.time; //PRECISO TRANFORMAR ESSE FLOAT ENTRE 0.0 E 1
-
+        fill = (timer - Time.time) / 10; //PRECISO TRANFORMAR ESSE FLOAT ENTRE 0.0 E 1
         
         powerUpTimerTransform.sizeDelta = new Vector2(fill * PU_BAR_FILLED, powerUpTimerTransform.sizeDelta.y);
 
         if (powerUpTimerTransform.sizeDelta.x == 0) //preciso rever 
         {
             powerUpTimerTransform.gameObject.SetActive(false);
+
+            //fill = Time.time;
         }
     }
 }

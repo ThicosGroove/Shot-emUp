@@ -25,7 +25,7 @@ public class BulletPlayerLimits : MonoBehaviour
 
         sprite.a = Mathf.Lerp(firstPos.position.y, bulletMaxRange, 0.5f);
 
-        //sprite.GetComponent<SpriteRenderer>().color = sprite;
+        //sprite.GetComponent<SpriteRenderer>().color = sprite.a;   //Se der tempo
 
         if (posY.y == 4.5f)
         {

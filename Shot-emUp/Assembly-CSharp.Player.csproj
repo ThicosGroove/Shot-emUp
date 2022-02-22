@@ -61,11 +61,13 @@
     <Compile Include="Assets\Input Control\InputControls.cs" />
     <Compile Include="Assets\Scripts\SpawnPUManager.cs" />
     <Compile Include="Assets\Scripts\PowerUpManager.cs" />
-    <Compile Include="Assets\Scripts\Gun.cs" />
+    <Compile Include="Assets\Scripts\GunHandler.cs" />
     <Compile Include="Assets\Scripts\PlayerBodyHandler.cs" />
-    <Compile Include="Assets\Scripts\GameSystemManager.cs" />
+    <Compile Include="Assets\Scripts\EnemyHealth.cs" />
+    <Compile Include="Assets\Scripts\PlayerSpawnManager.cs" />
+    <Compile Include="Assets\Scripts\ParticleSystemHandler.cs" />
     <Compile Include="Assets\Scripts\WeaponScriptableObject.cs" />
-    <Compile Include="Assets\Scripts\SpawnEnemy.cs" />
+    <Compile Include="Assets\Scripts\SpawnEnemyManager.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\BGMoving.cs" />
@@ -73,9 +75,7 @@
     <Compile Include="Assets\Scripts\BulletHandler.cs" />
     <Compile Include="Assets\Scripts\PowerUP.cs" />
     <Compile Include="Assets\Scripts\BulletPlayerLimits.cs" />
-    <Compile Include="Assets\Scripts\EnemyGun.cs" />
-    <Compile Include="Assets\Scripts\EnemyHealth.cs" />
-    <Compile Include="Assets\Scripts\ParticleSystemHandler.cs" />
+    <Compile Include="Assets\Scripts\EnemyGunHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

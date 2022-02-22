@@ -46,11 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spaceShip: {fileID: 8764948261918676223, guid: f05bca50b005a0049b68b3a7771e7768, type: 3}
-  Enemy:
+  allEnemy:
   - {fileID: 2210091821582402027, guid: 0d7200781ef338c438c436af3b7c50de, type: 3}
   - {fileID: 8729904721672755348, guid: 3c76504a2e6d1a04a84c5f0663b4beb1, type: 3}
   - {fileID: 639266413825613331, guid: 53d0e92787494514cb45a2ee3091d809, type: 3}
   - {fileID: 5129448809403694164, guid: 1e53653b8b927b542987c360852b462d, type: 3}
+  allBullets:
+  - {fileID: 2062169614763018322, guid: 46206b798e2dbda4cb260aa9d64dec68, type: 3}
+  - {fileID: 282802806491388616, guid: b843e5a98fce889419a9647ff32583de, type: 3}
+  - {fileID: 2257662634735439508, guid: 5cb24e9e30b31bc4594e60ebee758d79, type: 3}
+  - {fileID: 5580337370970862502, guid: a91e85f4d7ef1814abec7115ea00d04b, type: 3}
+  - {fileID: 7448406442585565890, guid: a1617e43079ccef4fb370a7ceeb6c851, type: 3}
+  - {fileID: 977986750753688711, guid: dcb7d037a1a59e441a71f38531dce4a2, type: 3}
   isDead: 1
 --- !u!114 &7147731557111246947
 MonoBehaviour:
@@ -70,6 +77,7 @@ MonoBehaviour:
   _bulletsPowerUpTimer: 12
   shield: {fileID: 0}
   playerMovement: {fileID: 0}
+  timerBar: {fileID: 0}
   gun: []
 --- !u!114 &7554158729982082626
 MonoBehaviour:
@@ -83,3 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c806cd092cd73fc4f9dc01758c0fd9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorePerKill: 100
+  score: 0
+  scoreText: {fileID: 0}
+  maxScoreText: {fileID: 0}

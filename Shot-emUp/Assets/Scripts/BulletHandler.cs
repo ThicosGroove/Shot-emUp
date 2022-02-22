@@ -39,7 +39,4 @@ public class BulletHandler : MonoBehaviour
             Destroy(this.gameObject);
        
     }
-
-
-
 }

@@ -6,19 +6,22 @@ using UnityEngine;
  //Esse lida apenas em pegar os Power Ups
 public class PlayerPowerUP : MonoBehaviour
 {
-    public PowerUpManager powerUpManager;
+    private PowerUpManager powerUpManager;
+
+    private void Start()
+    {
+        powerUpManager = FindObjectOfType<PowerUpManager>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //isso funiona?
-
-        if (collision.gameObject.CompareTag("ShieldPU"))        
+        if (collision.gameObject.CompareTag("ShieldPU"))
             StartCoroutine(powerUpManager.PowerUpShieldTimer());
-        
-        else if (collision.gameObject.CompareTag("SpeedPU"))        
+
+        else if (collision.gameObject.CompareTag("SpeedPU"))
             StartCoroutine(powerUpManager.PowerUpSpeedTimer());
-                  
-        else if (collision.gameObject.CompareTag("BulletPU"))       
-            StartCoroutine(powerUpManager.PowerUpBulletTimer());        
+
+        else if (collision.gameObject.CompareTag("BulletPU"))
+            StartCoroutine(powerUpManager.PowerUpBulletTimer());
     }
 }
