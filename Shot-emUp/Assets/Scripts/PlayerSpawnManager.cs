@@ -16,7 +16,7 @@ public class PlayerSpawnManager : MonoBehaviour
 
     private void Awake()
     {
-        spaceShip = GameObject.FindGameObjectWithTag("Player"); //esse aqui encontra mais rápido
+        spaceShip = GameObject.FindGameObjectWithTag("Player"); //esse aqui encontra mais rápido?
 
         playerParticle = GameObject.Find("SpaceShip").GetComponent<ParticleSystemHandler>();
     }

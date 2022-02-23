@@ -9,6 +9,12 @@ public class PowerUpManager : MonoBehaviour
     public float _speedPowerUpTimer = 8f;
     public float _bulletsPowerUpTimer = 12f;
 
+    // uso no TimerBarManager
+    public float maxPowerUpTimer; 
+    public bool hasPowerUp;       
+    public string whichPowerUp;
+    public int howMany;
+
     public GameObject shield; // tive que fazer public
     public GunHandler[] gun;
 
@@ -33,52 +39,73 @@ public class PowerUpManager : MonoBehaviour
     // são usados pelo PlayerBodyHandler
     public IEnumerator PowerUpShieldTimer()
     {
-        timerBar.SetTimer(_shieldPowerUpTimer);
+        maxPowerUpTimer = _shieldPowerUpTimer;   
+
+        whichPowerUp = "Shield";
+        timerBar.GettingTimer(whichPowerUp);
+
+        hasPowerUp = true;
+        howMany++;
 
         shield.SetActive(true); 
 
         yield return new WaitForSeconds(_shieldPowerUpTimer);
 
         shield.SetActive(false);
+
+        hasPowerUp = false;
     }
 
     public IEnumerator PowerUpSpeedTimer()
     {
-        timerBar.SetTimer(_speedPowerUpTimer);
+        maxPowerUpTimer = _speedPowerUpTimer;
+
+        whichPowerUp = "Speed";
+        timerBar.GettingTimer(whichPowerUp);
+
+        hasPowerUp = true;
+        howMany++;
 
         playerMovement.moveSpeed *= powerUpSpeed;
 
         yield return new WaitForSeconds(_speedPowerUpTimer);
 
         playerMovement.moveSpeed /= powerUpSpeed;
+
+        hasPowerUp = false;
     }
 
     public IEnumerator PowerUpBulletTimer()
     {
-        timerBar.SetTimer(_bulletsPowerUpTimer);
+        maxPowerUpTimer = _bulletsPowerUpTimer;
 
+        whichPowerUp = "Bullet";
+        timerBar.GettingTimer(whichPowerUp);
 
-            Debug.Log("Pegou bala");
-            gun[0].gameObject.SetActive(false);
-            gun[1].gameObject.SetActive(false);
-            gun[2].gameObject.SetActive(true);
-            gun[3].gameObject.SetActive(true);
-            gun[4].gameObject.SetActive(true);
+        hasPowerUp = true;
 
-            // gun[i].gameObject.SetActive(true) = !gun[i].gameObject.SetActive(false);
-            // PAOLLA MIM AJUDA =´(
+        gun[0].gameObject.SetActive(false);
+        gun[1].gameObject.SetActive(false);
+        gun[2].gameObject.SetActive(true);
+        gun[3].gameObject.SetActive(true);
+        gun[4].gameObject.SetActive(true);
 
-            //if (gun[i].gameObject.activeInHierarchy)
-              //  gun[i].gameObject.SetActive(false);
-       
+        // gun[i].gameObject.SetActive(true) = !gun[i].gameObject.SetActive(false);
+        // PAOLLA MIM AJUDA =´(
+
+        //if (gun[i].gameObject.activeInHierarchy)
+        //  gun[i].gameObject.SetActive(false);
+
         yield return new WaitForSeconds(_bulletsPowerUpTimer);
 
-            gun[0].gameObject.SetActive(true);
-            gun[1].gameObject.SetActive(true);
-            gun[2].gameObject.SetActive(false);
-            gun[3].gameObject.SetActive(false);
-            gun[4].gameObject.SetActive(false);
-        
+        gun[0].gameObject.SetActive(true);
+        gun[1].gameObject.SetActive(true);
+        gun[2].gameObject.SetActive(false);
+        gun[3].gameObject.SetActive(false);
+        gun[4].gameObject.SetActive(false);
+
+        hasPowerUp = false;
+
         //tentei de muitas formas fazer as armas funcionarem. mas esse foi o que eu consegui
         //o problema é que quando troca de arma o jogador precisa pressionar novamente o botao
         //e não sei se 
