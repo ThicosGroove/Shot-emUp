@@ -5,11 +5,16 @@ using UnityEngine;
 public class EnemyGunHandler : MonoBehaviour
 {
     public WeaponScriptableObject weapon;
+
+    private GunHandlerSFX gunSFX;
+
     private Vector2 newDirection;
 
     private void Start()
     {
         InvokeRepeating("Shoot", 0.5f, weapon._fireRate);
+
+        gunSFX = GetComponentInParent<GunHandlerSFX>();
     }
 
     private void Update()
@@ -22,5 +27,8 @@ public class EnemyGunHandler : MonoBehaviour
         GameObject bullet = Instantiate(weapon.bulletType, transform.position, Quaternion.identity);
         BulletHandler newBullet = bullet.GetComponent<BulletHandler>();
         newBullet.direction = newDirection;
+
+        if (gunSFX != null)
+            gunSFX.PlaySFX();
     }
 }

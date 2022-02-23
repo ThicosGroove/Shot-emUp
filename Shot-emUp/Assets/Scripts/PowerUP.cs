@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PowerUP : MonoBehaviour
 {
+    [SerializeField] private float despawnPowerUp = 5f;
+
     private void Start()
     {
-        Destroy(this.gameObject, 5f); // se o jogador não pegar o PowerUP ele desaparece
+        Destroy(this.gameObject, despawnPowerUp); // se o jogador não pegar o PowerUP ele desaparece
     }
 
     //se sobrar tempo fazer animação de flutuando no espaço

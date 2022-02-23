@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\PowerUP.cs" />
     <Compile Include="Assets\Scripts\BulletPlayerLimits.cs" />
     <Compile Include="Assets\Scripts\EnemyGunHandler.cs" />
+    <Compile Include="Assets\Scripts\GunHandlerSFX.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

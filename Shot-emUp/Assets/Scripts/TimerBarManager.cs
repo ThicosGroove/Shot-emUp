@@ -10,16 +10,13 @@ public class TimerBarManager : MonoBehaviour
     private PowerUpManager powerUpTimerManager;
     private PlayerSpawnManager spawnManager;
 
-    private float maxTimer;
-    private float currentTime;
+    private float fillAmount;
+    private float[] maxTimer = { 1, 2, 3};
+    private float[] currentTime = { 1, 2, 3 };
     private int currentPowerUp;
 
     private void Start()
-    {
-        //allCanvas = GameObject.FindGameObjectsWithTag("PowerUpBar");
-
-        //allFillAmount = GameObject.FindGameObjectsWithTag("FillAmount");
-        
+    {       
         powerUpTimerManager = GetComponent<PowerUpManager>();
 
         spawnManager = GetComponent<PlayerSpawnManager>();
@@ -33,74 +30,69 @@ public class TimerBarManager : MonoBehaviour
         TurnOnTimeBar();
     }
 
-    private void TurnOnTimeBar()   //como fazer pra inverter?
+    private void TurnOnTimeBar()
     {
-        if (powerUpTimerManager.hasPowerUp && !spawnManager.isDead)
+        if (powerUpTimerManager.hasPowerUp )
         {
             allCanvas[currentPowerUp].gameObject.SetActive(true);
             SettingTimer();
         }
-        else
+        else if (fillAmount < 0.001f)
         {
-            allCanvas[allCanvas.Length -1].gameObject.SetActive(false);
-            currentTime = GettingTimer(null);
+            allCanvas[currentPowerUp].gameObject.SetActive(false);
         }
-    }
-
-    public float GettingTimer(string powerUp) // um pouco bugado mas funciona.
-    {                                         // pegar 2 PU buga muito
-        switch (powerUp)                      // pegar o mesmo não reinicia o currentTime p/ MaxTime
-        {
+    }            
+    
+                                              // um pouco bugado mas funciona.
+                                              // pegar 2 PowerUps buga muito.
+    public float GettingTimer(string powerUp) // pegar o mesmo não reinicia o Coroutine
+    {                                         // infelizmente só consegui fazer funcionar direitinho 
+        switch (powerUp)                      // com 1 Power Up de uma vez. 
+        {                                                   
             case "Bullet": //liga o canvas[0]
-                currentTime = powerUpTimerManager._bulletsPowerUpTimer;
+
                 currentPowerUp = 0;
+                currentTime[0] = powerUpTimerManager._bulletsPowerUpTimer;
                 break;
 
             case "Shield": //liga o canvas[1]
-                currentTime = powerUpTimerManager._shieldPowerUpTimer;
+
                 currentPowerUp = 1;
+                currentTime[1] = powerUpTimerManager._shieldPowerUpTimer;
                 break;
 
             case "Speed": //liga o canvas[2]
-                currentTime = powerUpTimerManager._speedPowerUpTimer;
+
                 currentPowerUp = 2;
+                currentTime[2] = powerUpTimerManager._speedPowerUpTimer;
                 break;
 
             case null:
                 break;              
         }
 
-        return currentTime;
+        return currentTime[currentPowerUp];
     }
 
     private void SettingTimer()
     {
-        float fillAmout = allFillAmount[currentPowerUp].GetComponent<Image>().fillAmount;
+        fillAmount = allFillAmount[currentPowerUp].GetComponent<Image>().fillAmount;
 
-        maxTimer = powerUpTimerManager.maxPowerUpTimer;
+        maxTimer[0] = powerUpTimerManager.maxBulletTimer;
+        maxTimer[1] = powerUpTimerManager.maxShieldTimer;
+        maxTimer[2] = powerUpTimerManager.maxSpeedTimer;
 
-        currentTime -= Time.deltaTime;
+        currentTime[currentPowerUp] -= Time.deltaTime;
 
-        Debug.LogWarning(fillAmout);
-
-        if (currentTime < 0) { return; }
+        if (currentTime[currentPowerUp] <= 0) { return; }
 
         if (spawnManager.isDead) { return; }
 
-        fillAmout = currentTime / maxTimer;
-        allFillAmount[currentPowerUp].GetComponent<Image>().fillAmount = fillAmout;
-        Debug.Log(fillAmout);
+        fillAmount = currentTime[currentPowerUp] / maxTimer[currentPowerUp];
+        
+        allFillAmount[currentPowerUp].GetComponent<Image>().fillAmount = fillAmount;
     }
 
-
-
-    
-    // criar lista com os 3 allCanvas
-    //independente do power up, sempre ligar o primeiro e ir na ordem
-
-    // para cada allCanvas um maxTimer, currentTime e fillAmout
-
-    // dar cor especifica para cada power up
 
 
 }

@@ -7,6 +7,8 @@ public class GunHandler : MonoBehaviour
 {
     public WeaponScriptableObject weapon;
 
+    private GunHandlerSFX gunSFX;
+
     private InputControls inputControls;
     private float nextFire = 0.0f;
     private Vector2 newDirection;
@@ -21,6 +23,11 @@ public class GunHandler : MonoBehaviour
 
     private void OnDisable() => inputControls.Disable();
 
+    private void Start()
+    {
+        gunSFX = GetComponentInParent<GunHandlerSFX>();
+    }
+
     private void Update()
     {
         newDirection = (transform.localRotation * Vector3.up).normalized;
@@ -31,6 +38,7 @@ public class GunHandler : MonoBehaviour
         {
             nextFire = Time.time + weapon._fireRate;
             Shoot();
+            PlayAudio();
         }
     }
 
@@ -40,4 +48,6 @@ public class GunHandler : MonoBehaviour
         BulletHandler newBulletDirection = newBullet.GetComponent<BulletHandler>();
         newBulletDirection.direction = newDirection;
     }
+
+    private void PlayAudio() => gunSFX.PlaySFX();
 }

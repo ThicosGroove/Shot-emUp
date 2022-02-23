@@ -50,8 +50,8 @@ public class PlayerSpawnManager : MonoBehaviour
         Physics.SyncTransforms();
 
         spaceShip.GetComponentInChildren<SpriteRenderer>().enabled = true;
-
         isDead = false;
+
     }
 
     // Destrói todos os inimigos e tiros da cena pra reiniciar o jogo sem chamar

@@ -9,9 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2207500709193765869}
+  - component: {fileID: 7554158729982082626}
   - component: {fileID: 2207500709193765868}
   - component: {fileID: 7147731557111246947}
-  - component: {fileID: 7554158729982082626}
+  - component: {fileID: 3759378190732506244}
+  - component: {fileID: 5572253026200276334}
+  - component: {fileID: 8971494789427737360}
   m_Layer: 0
   m_Name: GameSystemManager
   m_TagString: Untagged
@@ -33,52 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2207500709193765868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2207500709193765871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b7660aa303bca6429443288e127032e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spaceShip: {fileID: 8764948261918676223, guid: f05bca50b005a0049b68b3a7771e7768, type: 3}
-  allEnemy:
-  - {fileID: 2210091821582402027, guid: 0d7200781ef338c438c436af3b7c50de, type: 3}
-  - {fileID: 8729904721672755348, guid: 3c76504a2e6d1a04a84c5f0663b4beb1, type: 3}
-  - {fileID: 639266413825613331, guid: 53d0e92787494514cb45a2ee3091d809, type: 3}
-  - {fileID: 5129448809403694164, guid: 1e53653b8b927b542987c360852b462d, type: 3}
-  allBullets:
-  - {fileID: 2062169614763018322, guid: 46206b798e2dbda4cb260aa9d64dec68, type: 3}
-  - {fileID: 282802806491388616, guid: b843e5a98fce889419a9647ff32583de, type: 3}
-  - {fileID: 2257662634735439508, guid: 5cb24e9e30b31bc4594e60ebee758d79, type: 3}
-  - {fileID: 5580337370970862502, guid: a91e85f4d7ef1814abec7115ea00d04b, type: 3}
-  - {fileID: 7448406442585565890, guid: a1617e43079ccef4fb370a7ceeb6c851, type: 3}
-  - {fileID: 977986750753688711, guid: dcb7d037a1a59e441a71f38531dce4a2, type: 3}
-  isDead: 1
---- !u!114 &7147731557111246947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2207500709193765871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79cef218455dd204ebc20966cb2db202, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpSpeed: 1.5
-  _shieldPowerUpTimer: 8
-  _speedPowerUpTimer: 8
-  _bulletsPowerUpTimer: 12
-  shield: {fileID: 0}
-  playerMovement: {fileID: 0}
-  timerBar: {fileID: 0}
-  gun: []
 --- !u!114 &7554158729982082626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,3 +52,102 @@ MonoBehaviour:
   score: 0
   scoreText: {fileID: 0}
   maxScoreText: {fileID: 0}
+--- !u!114 &2207500709193765868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207500709193765871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7660aa303bca6429443288e127032e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 1
+--- !u!114 &7147731557111246947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207500709193765871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79cef218455dd204ebc20966cb2db202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletsPowerUpTimer: 15
+  _shieldPowerUpTimer: 15
+  _speedPowerUpTimer: 15
+  maxBulletTimer: 0
+  maxShieldTimer: 0
+  maxSpeedTimer: 0
+  hasPowerUp: 0
+  whichPowerUp: 
+  shield: {fileID: 0}
+  gun:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &3759378190732506244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207500709193765871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c447e8eeb06faf4698c831063439bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawPowerUpRate: 15
+  powerUpPrefab:
+  - {fileID: 7760330789467472358, guid: dad3d6d829220c5489cc86f498bfb752, type: 3}
+  - {fileID: 1571171287514798008, guid: b81cc1a3021833c499e402cdf070c94b, type: 3}
+  - {fileID: 8549729049752977299, guid: db321415468608b419a35566d20ca54c, type: 3}
+--- !u!114 &5572253026200276334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207500709193765871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b271bfd632478bd429baa335f861b025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMaxSpawn: 3
+  enemies:
+  - name: Blue
+    prefab: {fileID: 2210091821582402027, guid: 0d7200781ef338c438c436af3b7c50de, type: 3}
+  - name: Green
+    prefab: {fileID: 8729904721672755348, guid: 3c76504a2e6d1a04a84c5f0663b4beb1, type: 3}
+  - name: Orange
+    prefab: {fileID: 639266413825613331, guid: 53d0e92787494514cb45a2ee3091d809, type: 3}
+  - name: Purple
+    prefab: {fileID: 5129448809403694164, guid: 1e53653b8b927b542987c360852b462d, type: 3}
+--- !u!114 &8971494789427737360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207500709193765871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec8e485e9dd62842843212e8d792f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allCanvas:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  allFillAmount:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

@@ -17,6 +17,7 @@ TagManager:
   - MyHealthBar
   - PowerUpBar
   - FillAmount
+  - Gun
   layers:
   - Default
   - TransparentFX
