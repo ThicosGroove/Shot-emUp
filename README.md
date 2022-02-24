@@ -82,7 +82,7 @@ from player and enemy type of gun, to health and enemy spawn rate.
   
 ___
   
-Hope you enjoy the game and hire me :wink:  :octocat:
+>Hope you enjoy the game and hire me :wink:  :octocat:
   
   
   [1]: https://unity.com/pt/solutions/gaming-services
