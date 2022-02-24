@@ -2,7 +2,7 @@
   
 ## Description
   
-Shoot'em Up is a simple single player fast pace space shooter made in [Unity][1]. Project design for an interview test, with a few cool features as [power ups](#Power-Ups), multiple [enemies](#Enemies) and types of [guns](##Enemies).
+Shoot'em Up is a simple single player fast pace space shooter made in [Unity][1]. Project design for an interview test, with a few cool features as [power ups](#Power-Ups), multiple [enemies](#Enemies) and types of [guns](#Enemies).
 
   
 <h4 align="center">
