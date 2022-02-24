@@ -60,7 +60,7 @@ There are 4 enemies to fight off with. They don't really have a name, so we go b
  each bar has its own color for especific power up. And shows the player exacly how much time last that power up.
   
   
- <img src="BulletPowerUp.gif" width="300"/> <img src="ShieldPowerUp.gif" width="300"/> <img src="SpeedPowerUp.gif" width="300"/>
+ <img src="BulletPowerUp.gif" width="250"/> <img src="ShieldPowerUp.gif" width="250"/> <img src="SpeedPowerUp.gif" width="250"/>
     </details>  
   
 ## Unity Design
